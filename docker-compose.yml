@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    container_name: fastapi-server
+    ports:
+      - "8000:8000"
+
+  client:
+    build: ./client
+    container_name: python-client
+    depends_on:
+      - server
+
